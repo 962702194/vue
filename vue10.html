@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>事件绑定</title>
+  <script src="./vue.js"></script>
+  <style>
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div id="example-1">
+      <button v-on:click='counter += 1'>数值：{{counter}}</button>
+    </div>
+    <div id="example-2">
+      <button v-on:click='greet("asdasd", $event)'>Greet</button>
+    </div>
+  </div>
+</body>
+<script>
+  const vm = new Vue({
+    el: '#app',
+    data: {
+      counter: 0,
+      name: 'uve.js'
+    },
+    methods: {
+      greet: function(str,event){
+        console.log('hello ' + this.name + ' !')
+        console.log(str)
+        // event是原生DOM事件
+        if(event){
+          console.log(event.target.tagName)
+        }
+      }
+    },
+  })
+</script>
+</html>

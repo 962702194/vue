@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>列表渲染</title>
+  <script src="./vue.js"></script>
+  <style>
+
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- 能对数组进行遍历 -->
+    <!-- key类似react列表的key，用来跟踪每一个节点的身份，从而重用和重新排序现有元素 -->
+    <ul>
+      <li v-for="each,index in list" :key="index">
+        {{index}}:{{each.message}}
+      </li>
+    </ul>
+    <!-- 能对对象进行遍历 -->
+    <ul>
+      <li v-for="value,key in object" :key="key">
+        {{key}}:{{value}}
+      </li>
+    </ul>
+  </div>
+</body>
+<script>
+  const vm = new Vue({
+    el: '#app',
+    data:{
+      list: [
+        {message: '111111111'},
+        {message: '222222222'}
+      ],
+      object: {
+        name: '1111',
+        sex: '2222',
+        age: '3333'
+      }
+    }
+  })
+</script>
+</html>

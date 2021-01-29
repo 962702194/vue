@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据与方法</title>
+  <script src="./vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    {{message}}
+  </div>
+</body>
+<script>
+  const data = {
+    message: 'hello vue'
+  }
+  const vm = new Vue({
+    el: '#app',
+    data
+  })
+  // data.message = 'hello yyr'
+  // vm.message = 'hello yyr1'
+  console.log(data.message === vm.message)
+  console.log(vm.$data === data)
+
+
+  vm.$watch('message',(newVal,oldVal)=>{
+    console.log(newVal,oldVal)
+  })
+  vm.$data.message = 'hello yyr3'
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>class与style绑定</title>
+  <script src="./vue.js"></script>
+  <style>
+    .active{
+      background: red;
+    }
+    .test{
+      font-size: 30px;
+    }
+    .green{
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- <div 
+      class="test"
+      v-bind:class="{active: isActive, green: isGreen}"
+      style='width: 200px; height: 200px; text-align: center; line-height: 200px;'
+    > -->
+    <div 
+      class="test"
+      v-bind:class="[ isActive && 'active', isGreen && 'green' ]"
+      style='width: 200px; height: 200px; text-align: center; line-height: 200px;'
+    >
+      hi vue1
+    </div>
+
+    <!-- 动态绑定简写 -->
+    <!-- v-bind:class === :class -->
+    <!-- v-on:click === @click -->
+    <div
+      :style="{color,fontSize,background:isRed && '#FF0000'}"
+    >
+      hi vue2
+    </div>
+  </div>
+</body>
+<script>
+  const vm = new Vue({
+    el: '#app',
+    data: {
+      isActive: true,
+      isGreen: false,
+      color: '#fff',
+      fontSize: '50px',
+      isRed: true
+    }
+  })
+</script>
+</html>
